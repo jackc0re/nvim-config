@@ -62,12 +62,20 @@ return {
 			end,
 			desc = "Notification History",
 		},
+		-- Explorer config
 		{
-			"<leader>e",
+			"<leader>ee",
 			function()
 				Snacks.explorer()
 			end,
 			desc = "File Explorer",
+		},
+		{
+			"<leader>ef",
+			function()
+				Snacks.explorer.reveal()
+			end,
+			desc = "File Explorer current buffer",
 		},
 		-- find
 		{
