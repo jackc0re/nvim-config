@@ -6,6 +6,9 @@ return {
 		auto_session.setup({
 			auto_restore_enabled = false,
 			auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+			session_lens = {
+				load_on_setup = false, -- Initialize on startup (requires Telescope)
+			},
 		})
 
 		local keymap = vim.keymap
