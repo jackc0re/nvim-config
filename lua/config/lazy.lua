@@ -15,27 +15,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
-require("config.options")
-
--- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		-- import your plugins
 		{ import = "plugins" },
 	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "catppuccin" } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
+	-- Colorscheme used while plugins are being installed
+	install = { colorscheme = { "gruvbox", "habamax" } },
+	-- Disable update checks on startup: they hit the network and cause
+	-- lag spikes on Windows. Run :Lazy update manually instead.
+	checker = { enabled = false, notify = false },
+	rocks = { enabled = false }, -- no plugin in this config uses luarocks
 })
-
-require("config.keymaps")
--- For video recording purposes
--- vim.cmd("ShowkeysToggle");

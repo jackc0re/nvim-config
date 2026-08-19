@@ -1,7 +1,9 @@
+-- Tabline showing tabs (bufferline in "tabs" mode)
 return {
 	"akinsho/bufferline.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 	version = "*",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	event = "UIEnter",
 	opts = {
 		options = {
 			mode = "tabs",

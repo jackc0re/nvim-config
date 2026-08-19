@@ -1,63 +1,65 @@
-vim.opt.expandtab = true -- Convert tabs to spaces
-vim.opt.shiftwidth = 4 -- Amount to indent with << and >>
-vim.opt.softtabstop = 4 -- How many spaces are applied when pressin Tab
+-- Indentation: 4 spaces, converted from tabs
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 vim.opt.smarttab = true
 vim.opt.smartindent = true
-vim.opt.autoindent = true -- Keep indent from prev line
+vim.opt.autoindent = true
 
--- Enable break indent
+-- Wrap existing lines nicely
 vim.opt.breakindent = true
 
--- Always show relative line numbers
+-- Line numbers: absolute + relative
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Show line under cursor
 vim.opt.cursorline = true
 
--- Store undos between sessions
+-- Persist undo history across sessions
 vim.opt.undofile = true
 
+-- Mouse support (resizable splits, scrolling)
+vim.opt.mouse = "a"
 
--- Enable mouse mode in order to resize splits!
-vim.opt.mouse = "a" 
-
--- Don't show mode, because it's already in the statusline
+-- Mode is shown by the statusline
 vim.opt.showmode = false
 
-
--- Case-insensitive searching UNLESS \C or one more capital letters in the search term
+-- Case-insensitive search unless \C or a capital letter is used
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Keep signcolumn on by default
+-- Keep the signcolumn always open (avoids layout shifts from diagnostics)
 vim.opt.signcolumn = "yes"
 
--- Configure how splits should open
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-
--- Sets how neovim will display certain whitespace characters in the editor.
--- See `:help 'list'`
--- and `:help 'listchars'`
+-- Show invisible whitespace characters
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "⋅", nbsp = "␣" }
 
-
--- Minimal number of screen lines to keep above and below the cursor.
+-- Context lines around the cursor
 vim.opt.scrolloff = 10
 
+-- True colors (required by gruvbox and virtually every modern theme)
+vim.opt.termguicolors = true
 
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+-- System clipboard sync.
+-- NOTE: setting this option resolves the clipboard provider on first use.
+-- On Windows, if win32yank.exe is missing Neovim falls back to spawning
+-- powershell.exe for every yank/paste (300ms-2s each!). Setting it inside
+-- vim.schedule() keeps the provider probe from blocking startup.
+vim.schedule(function()
+	vim.opt.clipboard = "unnamedplus"
+end)
 
+if vim.fn.has("win32") == 1 and vim.fn.executable("win32yank.exe") ~= 1 then
+	vim.notify(
+		[[
+win32yank.exe not found — clipboard operations will be SLOW
+(powershell fallback spawns a shell for every yank/paste).
+Fix: scoop install win32yank   (or download from github.com/equalsraf/win32yank)]],
+		vim.log.levels.WARN
+	)
+end
