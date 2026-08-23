@@ -1,8 +1,11 @@
 -- gruvbox (motaz-shokry's flavor) — https://gitlab.com/motaz-shokry/gruvbox.nvim
--- Lua gruvbox with a softer #1b1b1b hard background and devicon theming.
+-- Disabled in favor of the local jackc0re colorscheme (colors/jackc0re.lua)
+-- ported from the Zed theme. Flip this back to `true` (and remove the
+-- `vim.cmd.colorscheme("jackc0re")` line in init.lua) to return to gruvbox.
 return {
 	"https://gitlab.com/motaz-shokry/gruvbox.nvim",
 	name = "gruvbox",
+	enabled = false,
 	lazy = false,
 	priority = 1000,
 
