@@ -43,9 +43,9 @@ return {
 
 		-- Daily notes: 04.Journal/YYYY/YYYY-MM-DD.md (matches existing files)
 		daily_notes = {
-			folder = function()
-				return "04.Journal/" .. os.date("%Y")
-			end,
+			-- NOTE: must be a string (a function here breaks Workspace.set mkdir in 3.16.x).
+			-- Evaluated at startup, so the year rolls over on the next nvim launch.
+			folder = "04.Journal/" .. os.date("%Y"),
 			date_format = "%Y-%m-%d",
 		},
 
@@ -73,10 +73,8 @@ return {
 			}
 		end,
 
-		-- This config uses blink.cmp and fzf-lua
-		completion = {
-			blink = true,
-		},
+		-- NOTE: completion is provided by obsidian.nvim's built-in LSP server
+		-- (obsidian-ls) — no completion config needed.
 		finder = "fzf-lua",
 
 		-- Disable built-in UI tweaks; render-markdown.nvim handles the pretty stuff
