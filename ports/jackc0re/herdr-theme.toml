@@ -1,0 +1,25 @@
+# jackc0re — Herdr theme overrides
+# Ported from the Zed theme via nvim-config/lua/jackc0re/palette.lua
+# Install: paste into %APPDATA%\herdr\config.toml under [theme], then run `herdr server reload-config`.
+# Note: keys validated against `herdr config check` (pink/maroon/lavender/text1 are NOT valid keys).
+
+[theme.custom]
+accent = "#EA9D34"         # amber (theme accent)
+text = "#D3D3DB"           # fg_bright
+subtext0 = "#999999"       # fg_muted
+surface_dim = "#212124"    # bg
+surface0 = "#262629"       # bg_panel
+surface1 = "#3a4042"       # bg_hover
+overlay0 = "#454343"       # linenr
+overlay1 = "#999999"       # fg_muted
+sidebar_bg = "#262629"     # bg_panel
+panel_bg = "#262629"       # bg_panel
+active_row_bg = "#1a1f20"  # bg_active
+selection_bg = "#3a4042"   # bg_hover (element.selected)
+mauve = "#915caf"          # purple
+green = "#73ca50"
+yellow = "#e9bf57"
+red = "#e25d56"
+blue = "#71ade7"
+teal = "#3E8FB0"           # syn_ns
+peach = "#F6C177"          # text.accent

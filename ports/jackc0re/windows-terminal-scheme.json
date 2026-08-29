@@ -1,0 +1,29 @@
+// jackc0re — Windows Terminal color scheme
+// Ported from the Zed theme via nvim-config/lua/jackc0re/palette.lua
+// ANSI colors = palette.terminal_colors(); cursor #cd974b; selection #EA9D34.
+// Install: add this object to the "schemes" array in
+//   %LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+// and set "colorScheme": "jackc0re" on profiles.
+{
+    "background": "#212124",
+    "black": "#000000",
+    "blue": "#4a88e4",
+    "brightBlack": "#777777",
+    "brightBlue": "#6f8fdb",
+    "brightCyan": "#4ac9e2",
+    "brightGreen": "#88db3f",
+    "brightPurple": "#e987e9",
+    "brightRed": "#f36868",
+    "brightWhite": "#ffffff",
+    "brightYellow": "#f0bf7a",
+    "cursorColor": "#cd974b",
+    "cyan": "#23acdd",
+    "foreground": "#B8B8B8",
+    "green": "#73ca50",
+    "name": "jackc0re",
+    "purple": "#915caf",
+    "red": "#e25d56",
+    "selectionBackground": "#EA9D34",
+    "white": "#cecece",
+    "yellow": "#e9bf57"
+}
