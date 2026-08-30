@@ -80,12 +80,11 @@ return {
 		-- Disable built-in UI tweaks; render-markdown.nvim handles the pretty stuff
 		ui = { enable = false },
 
-		mappings = {
-			-- <CR>: follow link / toggle checkbox / open tag, depending on cursor
-			["<cr>"] = "smart_action",
-			-- Jump to prev/next [[link]] in the buffer
-			["[o"] = "nav_link_prev",
-			["]o"] = "nav_link_next",
-		},
+		-- NOTE: the old 'mappings' option was removed upstream (warns + no effect now).
+		-- In-buffer defaults already cover the same keys: <cr> = smart_action,
+		-- ]o = nav_link next, [o = nav_link prev (obsidian/autocmds.lua;
+		-- disable via vim.g.obsidian_default_keymap = false).
+		-- Custom in-note keymaps: use callbacks.enter_note + require("obsidian.actions")
+		-- https://github.com/obsidian-nvim/obsidian.nvim/wiki/Keymaps
 	},
 }
