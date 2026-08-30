@@ -14,6 +14,7 @@ Herdr hot-reload; btop and WT need a restart/reopen).
 | `jackc0re.json` | Pi TUI theme | `%USERPROFILE%\.pi\agent\themes\jackc0re.json` **and** `~/.pi/agent/themes/jackc0re.json` (WSL); selected via `"theme": "jackc0re"` in each `settings.json` |
 | `windows-terminal-scheme.json` | "PowerShell theme" | `"schemes"` array in `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`; applied to PowerShell-family + Ubuntu profiles |
 | `herdr-theme.toml` | Herdr | `[theme.custom]` in `%APPDATA%\herdr\config.toml` (base stays `gruvbox`); apply: `herdr server reload-config`, validate: `herdr config check` |
+| `starship-palette.toml` | starship | `[palettes.jackc0re]` added to both live configs (`C:\Users\...\.config\starship.toml` gruvbox-roles + WSL `~/.config/starship.toml` catppuccin-roles); switch back by flipping `palette = "..."` |
 | `jackc0re.theme` | btop | `~/.config/btop/themes/` (WSL), `scoop\apps\btop\current\themes\` + `scoop\apps\btop-lhm\current\themes\` **and** each `scoop\persist\btop[-lhm]\themes\` copy; `color_theme` set in every `btop.conf` |
 
 ## Mapping (palette → targets)

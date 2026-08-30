@@ -1,0 +1,49 @@
+# jackc0re — starship palette blocks
+# Extracted/derived from nvim-config lua/jackc0re/palette.lua.
+# Applied to BOTH live configs (keep the old palettes in each file — reverting
+# is a one-line flip of `palette = "..."`):
+#   Windows: C:\Users\GRIGS.DESKTOP-0KH5FS2\.config\starship.toml  (gruvbox powerline preset — role names below)
+#   WSL:     /home/jackc0re/.config/starship.toml                  (catppuccin powerline preset — role names below)
+# Backups: starship.toml.pre-jackc0re next to each.
+
+# ── Windows config: gruvbox powerline preset role names ─────────────
+[palettes.jackc0re]
+color_orange = "#EA9D34"  # amber — lead segment (os/user)
+color_yellow = "#e9bf57"  # yellow — directory
+color_aqua = "#73ca50"    # green — git
+color_blue = "#3E8FB0"    # syn_ns — languages
+color_bg3 = "#999999"     # fg_muted — docker bg
+color_bg1 = "#cecece"     # linenr_active — time bg
+color_fg0 = "#212124"     # bg — dark fg on segments (like nvim Visual)
+color_purple = "#915caf"  # purple
+color_red = "#e25d56"     # red
+color_green = "#73ca50"   # green
+
+# ── WSL config: catppuccin powerline preset role names ──────────────
+[palettes.jackc0re]  # (merge into one table per file — this file documents both variants)
+rosewater = "#F6C177"  # fg_accent
+flamingo = "#EA9A97"   # syn_operator
+pink = "#CC8BC9"       # syn_unit
+mauve = "#915caf"      # purple
+red = "#e25d56"        # red / error
+maroon = "#EB6F92"     # syn_constant
+peach = "#EA9D34"      # amber (accent)
+yellow = "#e9bf57"     # yellow
+green = "#73ca50"      # green / git_added
+teal = "#23acdd"       # cyan
+sky = "#4ac9e2"        # bright cyan
+sapphire = "#3E8FB0"   # syn_ns
+blue = "#71ade7"       # blue
+lavender = "#CC8BC9"   # syn_unit (light purple segment)
+text = "#D3D3DB"       # fg_bright
+subtext1 = "#B8B8B8"   # fg
+subtext0 = "#999999"   # fg_muted
+overlay2 = "#8A8A8A"   # fg_placeholder
+overlay1 = "#666666"   # fg_disabled
+overlay0 = "#454343"   # linenr
+surface2 = "#3a4042"   # bg_hover
+surface1 = "#2A2A2E"   # bg_chrome
+surface0 = "#262629"   # bg_panel
+base = "#212124"       # bg
+mantle = "#1a1f20"     # bg_active
+crust = "#212124"      # bg — dark fg on segments
