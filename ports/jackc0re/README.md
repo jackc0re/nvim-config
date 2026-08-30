@@ -3,6 +3,8 @@
 Canonical palette: [`lua/jackc0re/palette.lua`](../../lua/jackc0re/palette.lua)
 (originally `~/AppData/Roaming/Zed/themes/jackc0re.json`).
 
+**Palette reference:** [`PALETTE.md`](PALETTE.md) (human-readable, grouped), [`palette.toml`](palette.toml) (starship-ready `[palettes.jackc0re]`), [`palette.json`](palette.json) (scripting). All extracted verbatim from `lua/jackc0re/palette.lua`.
+
 This directory vendors the ports so they live in version control. The live
 copies are installed at the paths below — **edit here, then re-copy** (Pi and
 Herdr hot-reload; btop and WT need a restart/reopen).
