@@ -90,3 +90,8 @@ theme[download_end]="#e987e9"
 theme[upload_start]="#3E8FB0"
 theme[upload_mid]="#23acdd"
 theme[upload_end]="#4ac9e2"
+
+# Process box color gradient for threads, mem and cpu usage
+theme[process_start]="#73ca50"
+theme[process_mid]="#e9bf57"
+theme[process_end]="#e25d56"

@@ -7,7 +7,7 @@ Canonical palette: [`lua/jackc0re/palette.lua`](../../lua/jackc0re/palette.lua)
 
 This directory vendors the ports so they live in version control. The live
 copies are installed at the paths below — **edit here, then re-copy** (Pi and
-Herdr hot-reload; btop and WT need a restart/reopen).
+Herdr hot-reload; btop, foot, and WT need a restart/reopen).
 
 | File | Target | Installed at |
 |------|--------|--------------|
@@ -16,6 +16,7 @@ Herdr hot-reload; btop and WT need a restart/reopen).
 | `herdr-theme.toml` | Herdr | `[theme.custom]` in `%APPDATA%\herdr\config.toml` (base stays `gruvbox`); apply: `herdr server reload-config`, validate: `herdr config check` |
 | `starship-palette.toml` | starship | `[palettes.jackc0re]` added to both live configs (`C:\Users\...\.config\starship.toml` gruvbox-roles + WSL `~/.config/starship.toml` catppuccin-roles); switch back by flipping `palette = "..."` |
 | `jackc0re.theme` | btop | `~/.config/btop/themes/` (WSL), `scoop\apps\btop\current\themes\` + `scoop\apps\btop-lhm\current\themes\` **and** each `scoop\persist\btop[-lhm]\themes\` copy; `color_theme` set in every `btop.conf` |
+| `foot` | foot | `~/.config/foot/themes/jackc0re`; `include=~/.config/foot/themes/jackc0re` in `foot.ini` (do not also set `[colors-dark]` there) |
 
 ## Mapping (palette → targets)
 
@@ -57,3 +58,4 @@ plain-bold keywords and alabaster-style plain variables map to default text.
 - WT: restore `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json.pre-jackc0re` backup (or set profiles back to Kanagawa / Catppuccin Mocha / GruvboxMaterialHardDark).
 - Herdr: delete the `[theme.custom]` block from `%APPDATA%\herdr\config.toml`, then `herdr server reload-config`.
 - btop: point `color_theme` back to gruvbox_dark (WSL), tokyo-night (scoop btop), gruvbox_material_dark (btop-lhm); delete `jackc0re.theme` files.
+- foot: `include=~/.config/foot/themes/noctalia` in `foot.ini`; delete `~/.config/foot/themes/jackc0re`.

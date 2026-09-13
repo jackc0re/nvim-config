@@ -5,6 +5,9 @@ return {
 	"obsidian-nvim/obsidian.nvim",
 	version = "*", -- recommended: track latest release instead of latest commit
 	lazy = true,
+	-- Opt out of deprecated CamelCase commands (:ObsidianQuickSwitch etc., removed in 4.0);
+	-- the :Obsidian <sub> style used in keys below is unaffected.
+	legacy_commands = false,
 	ft = "markdown",
 	cmd = "Obsidian",
 	keys = {
@@ -24,7 +27,7 @@ return {
 		workspaces = {
 			{
 				name = "RuesLaTete",
-				path = "D:/RuesLaTete/RuesLaTete",
+				path = vim.fn.expand(vim.fn.has("win32") == 1 and "D:/RuesLaTete/RuesLaTete" or "~/Documents/RuesLaTete"), -- vault path: D: on Windows, ~/Documents on Arch
 			},
 		},
 

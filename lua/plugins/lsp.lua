@@ -31,9 +31,11 @@ return {
 					[vim.diagnostic.severity.HINT] = "󰌶 ",
 				},
 			},
-			virtual_text = {
+virtual_text = {
 				source = "if_many",
 				spacing = 2,
+				current_line = true, -- only show on the cursor line; the rest via <leader>fd / gl float
+				virt_text_pos = "right_align", -- pin to window edge instead of EOL (survives long lines)
 				format = function(diagnostic)
 					return diagnostic.message
 				end,
@@ -61,6 +63,10 @@ return {
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 
+			-- Ruff only lints/formats; let pyright own hover so it isn't duplicated
+			if client and client.name == "ruff" then
+				client.server_capabilities.hoverProvider = false
+			end
 				-- Highlight references of the word under the cursor
 				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
 					local highlight_augroup =
@@ -103,8 +109,13 @@ return {
 			clangd = {},
 			gopls = {},
 			pyright = {},
+			ruff = {},
 			-- Rust is handled by rustaceanvim (rustowl was removed: it is NOT
 			-- the Rust LSP, just an optional lifetime-visualization tool)
+			-- C#: official Roslyn LSP. Not a Mason package (removed from the
+			-- registry); it's a dotnet tool. Install/update with:
+			--   dotnet tool install -g roslyn-language-server --prerelease
+			roslyn_ls = {},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -136,6 +147,7 @@ return {
 				"marksman",
 				"pyright",
 				"stylua", -- Lua formatter
+			"ruff", -- ruff LSP (lint/format code actions)
 				"prettierd", -- JS/TS formatter
 			},
 		})
