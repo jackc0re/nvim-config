@@ -31,6 +31,10 @@ local shell_groups = {
 	"TabLine",
 	"TabLineFill",
 	"TabLineSel",
+	"FzfLuaPreviewNormal",
+	"FzfLuaPreviewBorder",
+	"SnacksPickerPreview",
+	"SnacksPickerPreviewBorder",
 }
 
 function M.load()

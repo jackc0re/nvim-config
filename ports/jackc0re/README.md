@@ -28,7 +28,7 @@ Herdr hot-reload; btop, foot, and WT need a restart/reopen).
 | `bg_active` #1a1f20 | editor.active_line | — | — | `active_row_bg` | — |
 | `fg` #B8B8B8 | editor.foreground | — | `foreground` | `text1`* | `main_fg`, box outlines |
 | `fg_bright` #D3D3DB | text/icon | — | — | `text` | `selected_fg` |
-| `fg_muted` #999999 | text.muted | `muted`, `thinkingText`, `mdQuote`, `toolDiffContext` | — | `subtext0`, `overlay1` | — |
+| `fg_muted` #999999 | text.muted | `muted`, `thinkingText`, `mdQuote`, `toolDiffContext` | — | `subtext0`, `overlay1` → #C6C6CE (see Deviations) | — |
 | `fg_disabled` #666666 | text.disabled | `dim` | — | — | `graph_text` |
 | `fg_accent` #F6C177 | text.accent / title | `toolTitle`, `mdHeading`, `customMessageLabel` | — | `peach` | `title` |
 | `amber` #EA9D34 | accents[0] / selection | `accent`, `borderAccent`, `bashMode` | `selectionBackground` | `accent` | — |
@@ -45,12 +45,19 @@ Herdr hot-reload; btop, foot, and WT need a restart/reopen).
 | `syn_func` #71ADE7 | function.definition | `syntaxFunction` | — | — | — |
 | `syn_ns` #3E8FB0 | namespace/tag | — | — | `teal` | `upload_start` |
 | `syn_operator` #EA9A97 | operator | `syntaxOperator` | — | — | — |
-| `linenr` #454343 | editor.line_number | `border`, `thinkingOff`, `mdCodeBlockBorder`, `mdQuoteBorder`, `mdHr` | — | `overlay0` | `div_line`, `inactive_fg` |
+| `linenr` #454343 | editor.line_number | `border`, `thinkingOff`, `mdCodeBlockBorder`, `mdQuoteBorder`, `mdHr` | — | `overlay0` → #B8B8B8 (see Deviations) | `div_line`, `inactive_fg` |
 | `scrollbar` #7A7A7A | scrollbar.thumb | `scrollbarThumb` | — | — | — |
 | terminal ANSI 0-15 | terminal.ansi.* | — | 16 scheme colors | — | — |
-
 `*` = closest available key; Herdr has no per-key bold/italic, so Zed's
 plain-bold keywords and alabaster-style plain variables map to default text.
+
+## Deviations from the verbatim palette
+
+- Herdr `overlay0` / `overlay1` are brightened to `#B8B8B8` (`fg`) and `#C6C6CE`,
+  not the verbatim `linenr` `#454343` / `fg_muted` `#999999`. Reason: Herdr renders
+  **inactive tab labels** with exactly those two tokens (`src/ui/tabs.rs`), and the
+  verbatim values made tabs nearly invisible on the `surface0` tab bar.
+  Applied 2026-09-01 to `herdr-theme.toml` and the live `%APPDATA%\herdr\config.toml`.
 
 ## Reverting
 

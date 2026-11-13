@@ -3,7 +3,8 @@
 -- Mode badges use the Zed theme's accent / player colors.
 local p = require("jackc0re.palette")
 
-local bg = p.bg
+-- Middle section follows the colorscheme's transparency setting.
+local bg = require("jackc0re").config.transparent and "NONE" or p.bg
 local panel = p.bg_panel
 local fg = p.fg_bright
 local muted = p.fg_muted

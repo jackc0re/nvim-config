@@ -68,9 +68,11 @@ virtual_text = {
 				client.server_capabilities.hoverProvider = false
 			end
 				-- Highlight references of the word under the cursor
-				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
-					local highlight_augroup =
-						vim.api.nvim_create_augroup("user-lsp-highlight", { clear = false })
+				if
+					client
+					and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
+				then
+					local highlight_augroup = vim.api.nvim_create_augroup("user-lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 						buffer = event.buf,
 						group = highlight_augroup,
@@ -127,9 +129,12 @@ virtual_text = {
 		}
 
 		for server_name, server_cfg in pairs(servers) do
-			vim.lsp.config(server_name, vim.tbl_deep_extend("force", {
-				capabilities = capabilities,
-			}, server_cfg))
+			vim.lsp.config(
+				server_name,
+				vim.tbl_deep_extend("force", {
+					capabilities = capabilities,
+				}, server_cfg)
+			)
 			vim.lsp.enable(server_name)
 		end
 
@@ -139,6 +144,10 @@ virtual_text = {
 		-- "bash-language-server". Passing lspconfig names makes mason error
 		-- with `Cannot find package "lua_ls"`.
 		require("mason-tool-installer").setup({
+			registries = {
+				"github:mason-org/mason-registry",
+				"github:Crashdummyy/mason-registry",
+			},
 			ensure_installed = {
 				"bash-language-server", -- bashls
 				"clangd",
